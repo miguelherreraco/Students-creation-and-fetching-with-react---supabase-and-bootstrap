@@ -6,12 +6,12 @@ function SearchInput ({functionToExecute, setStudent}: {functionToExecute: (id: 
     const [isTyping, setIsTyping] = useState(false);
     
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement> ) => {
-        setInputText(event.target.value);
-        setStudent ({} as Student)
-        setIsTyping(true)
+        setInputText(event.target.value); // sets the user input to the query to be executed
+        setStudent ({} as Student) //sets the student to empty in order to avoid showing previous results
+        setIsTyping(true) // sets the isTyping to help handling the student search
     }
 
-    useEffect(() => {
+    useEffect(() => { //handles the input of the input field to avoid sending many requests to database
         if (isTyping) {
             const timerId = setTimeout(() => {
                 functionToExecute(+inputText);

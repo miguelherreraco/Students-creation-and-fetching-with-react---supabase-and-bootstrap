@@ -1,9 +1,9 @@
 import Alert from "react-bootstrap/esm/Alert";
 
-function Warning({message, variant}:{message:string, variant: string}){
+function Warning({message}:{message:string}){
 
     return (
-        <Alert className="mt-5" variant={variant}>
+        <Alert className="mt-5">
             {message}        
         </Alert>
     )

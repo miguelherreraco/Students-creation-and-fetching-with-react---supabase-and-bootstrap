@@ -10,13 +10,16 @@ function StudentCreationForm({setModalShow}:{setModalShow: React.Dispatch<React.
     const { createStudent } = useSupabase();
 
     
-    const onSubmitHandler =(event: React.FormEvent<HTMLFormElement>) =>{
+    const onSubmitHandler =(event: React.FormEvent<HTMLFormElement>) =>{ //executes the creation of the student with the required data
         event.preventDefault();
-        if( inputFullName && inputEmail && inputCourse)
+        if( inputFullName && inputEmail && inputCourse){
             createStudent( inputFullName, inputEmail, inputCourse )
                 .then(
                     ()=> {setModalShow(false)}
                 )
+        }else{
+            alert("please fulfill all fields") //shows an alert in case the user is missing any field
+        }
     }
 
     return (

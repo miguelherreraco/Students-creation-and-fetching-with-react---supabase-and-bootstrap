@@ -10,7 +10,7 @@ import useSupabase from "./hooks/useSupabase"
 function App() {
   const [modalShow, setModalShow] = useState(false);
   
-  const {getStudent, isFetching, student, error, setStudent, message} = useSupabase();
+  const {getStudent, isFetching, student, error, setStudent} = useSupabase();
 
   if(isFetching) {
     return (
@@ -25,8 +25,7 @@ function App() {
     <main className="container mt-5 col-md-6 " >
     
     <SearchInput functionToExecute={getStudent} setStudent={setStudent} />
-    {(error && error.length > 0) && <Warning message={error} variant="warning"/>}
-    {(message && message.length > 0 ) && <Warning message={message} variant="success"/>}
+    {(error && error.length > 0) && <Warning message={error}/>}
     {student?.id &&
     <StudentCard
       student= {student}/>}

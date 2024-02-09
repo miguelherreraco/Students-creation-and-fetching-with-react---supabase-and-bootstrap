@@ -6,14 +6,12 @@ const useSupabase =() =>{
     const [student, setStudent] = useState<Student>()
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState("There's no students to show");
-    const [message, setMessage] = useState<string>();
 
 
     const getStudent = async (id: number) =>{
         console.log(id, "id")
         setIsFetching(true); //indicates that there're students fetching 
         setError(""); // sets the error message to empty 
-        setMessage(""); 
         try{
         const {data} = await supabase.from("students").select('*').eq('id', id).single(); //fetches a single student by ID
         if (!data) 
@@ -48,7 +46,7 @@ const useSupabase =() =>{
             }
         } 
 }
-return {getStudent, isFetching, error, student, setStudent, createStudent, message}
+return {getStudent, isFetching, error, student, setStudent, createStudent}
 }
 export default useSupabase;
 
