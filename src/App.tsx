@@ -8,13 +8,17 @@ import { Button } from "react-bootstrap"
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
+  // const handlerViewStudentCard = () => {
+
+  // }
+
   return (
-    <main className="container">
+    <main className="container mt-5 col-md-6 " >
     
-    <SearchInput/>
+    <SearchInput />
     <Warning message= "There's no students to show"/>
     <StudentCard/>
-    <Button variant="primary" onClick={()=> setModalShow(true)}>Add student</Button>
+    <Button className="w-100 mt-3" variant="primary" onClick={()=> setModalShow(true)}>Add student</Button>
     <ModalApp show= {modalShow} setShow={setModalShow}>
       <StudentCreationForm/>
     </ModalApp>

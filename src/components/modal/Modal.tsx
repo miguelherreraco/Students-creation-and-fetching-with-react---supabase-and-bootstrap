@@ -8,7 +8,7 @@ function ModalApp({children, show: modalShow, setShow: setModalShow}:{children: 
                 <ModalBody>
                     {children}
                 </ModalBody>
-            <Button onClick= {()=>setModalShow(false)}>Close</Button>
+            <Button className="mx-3 my-3" variant="danger" onClick= {()=>setModalShow(false)}>Close</Button>
             </Modal>
         </>
     )

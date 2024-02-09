@@ -5,7 +5,7 @@ function SearchInput (){
 
     return (
 
-        <Form.Control type="number" placeholder="Type the student ID...">
+        <Form.Control type="number" placeholder="Search by student ID...">
 
         </Form.Control>
     )

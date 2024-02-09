@@ -33,7 +33,7 @@ function StudentCreationForm(){
                         </Form.Label>
                         <Form.Control type = "text"></Form.Control>
                     </Form.Group>
-                    <Button type="submit">Add</Button>
+                    <Button type="submit" className="w-100 mt-3">Add</Button>
                 </Form>
             </CardBody>
         </Card>
