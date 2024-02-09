@@ -9,7 +9,6 @@ const useSupabase =() =>{
 
 
     const getStudent = async (id: number) =>{
-        console.log(id, "id")
         setIsFetching(true); //indicates that there're students fetching 
         setError(""); // sets the error message to empty 
         try{
