@@ -11,50 +11,44 @@ const useSupabase =() =>{
 
     const getStudent = async (id: number) =>{
         console.log(id, "id")
-        setIsFetching(true);
-        setError("");
-        setMessage("")
+        setIsFetching(true); //indicates that there're students fetching 
+        setError(""); // sets the error message to empty 
+        setMessage(""); 
         try{
-        const {data} = await supabase.from("students").select('*').eq('id', id).single();
+        const {data} = await supabase.from("students").select('*').eq('id', id).single(); //fetches a single student by ID
         if (!data) 
-            throw new Error("Student not found...")
+            throw new Error("Student not found...") // if data fetching didn't get any data, then throws an error
         if (data)
-            setStudent(data)            
+            setStudent(data)  // sets the student to show in the card          
         }catch(error ){
             if (error instanceof Error)
-                setError(error.message)
+                setError(error.message) //sets the error message to be shown on screen
         }finally{
-            setIsFetching(false)
+            setIsFetching(false) // sets the fetching state to false to re-render the component
         }
         
       }
 
     const createStudent = async ( fullName: string, email: string, course: string) => {
-        setIsFetching(true);
-        setError("");
-        setMessage("");
         try{
             const { data, error } = await supabase
                 .from("students")
                 .upsert({full_name: fullName, e_mail: email, course: course})
                 .select()
+                //creates a new student and returns it in data constant
                 
-                setStudent({} as Student)
                 if(error)
-                throw new Error(error.message)
+                    throw new Error(error.message) //throws the error if exists
                 if (data)
-                    alert(`${data[0].full_name} was created with id: ${data[0].id}`)
-            setMessage("Student created successfully")
+                    alert(`${data[0].full_name} was created with id: ${data[0].id}`) // display an alert indicating the ID of the just created student
         } catch (e) {
-            if (e instanceof Error)
+            if (e instanceof Error){
                 setError(e.message)
-        }finally{
-            setIsFetching(false)
-        }
-    } 
-    return {getStudent, isFetching, error, student, setStudent, createStudent, message}
-
-
+                alert(error) //alerts the error
+            }
+        } 
+}
+return {getStudent, isFetching, error, student, setStudent, createStudent, message}
 }
 export default useSupabase;
 
