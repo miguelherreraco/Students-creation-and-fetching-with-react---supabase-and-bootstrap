@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import ModalApp from "./components/modal/Modal"
+import SearchInput from "./components/searchInput/SearchInput"
+import StudentCard from "./components/studentCard/StudentCard"
+import StudentCreationForm from "./components/studentCreationForm/StudentCreationForm"
+import Warning from "./components/warning/Warning"
+import { Button } from "react-bootstrap"
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [modalShow, setModalShow] = useState(false);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="container">
+    
+    <SearchInput/>
+    <Warning message= "There's no students to show"/>
+    <StudentCard/>
+    <Button variant="primary" onClick={()=> setModalShow(true)}>Add student</Button>
+    <ModalApp show= {modalShow} setShow={setModalShow}>
+      <StudentCreationForm/>
+    </ModalApp>
+    </main>
   )
 }
 
