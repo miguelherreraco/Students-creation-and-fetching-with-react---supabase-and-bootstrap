@@ -16,7 +16,7 @@ function SearchInput ({functionToExecute, setStudent}: {functionToExecute: (id: 
             const timerId = setTimeout(() => {
                 functionToExecute(+inputText);
                 setIsTyping(false);
-            }, 500)
+            }, 800)
             return () => clearTimeout(timerId)
         }
     }, [inputText])
