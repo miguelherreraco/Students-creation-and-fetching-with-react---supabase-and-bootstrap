@@ -47,7 +47,7 @@ function StudentCreationForm({setModalShow}:{setModalShow: React.Dispatch<React.
                         </Form.Label>
                         <Form.Control type = "text" onChange={(e) => setInputCourse(e.target.value)}></Form.Control>
                     </Form.Group>
-                    <Button type="submit" className="w-100 mt-3">Add</Button>
+                    <Button type="submit" className="w-100 mt-3">Create</Button>
                 </form>
             </CardBody>
         </Card>
