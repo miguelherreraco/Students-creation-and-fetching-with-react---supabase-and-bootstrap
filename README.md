@@ -16,9 +16,9 @@ This project has 4 main layers:
 
 ## Instructions to Test
 
-==As I'm commited to build very intuitive apps, I encourage you to try to test the app before reading the instructions.==
+As I'm commited to build very intuitive apps, I encourage you to try to test the app before reading the instructions.
 
-== You can directly test this app in https://students-records-for-zoni.netlify.app/==
+ You can directly test this app in https://students-records-for-zoni.netlify.app/
 
 This app will allow 2 things:
 1. Search a student by ID
@@ -46,7 +46,7 @@ This app will allow 2 things:
     - VITE_SUPABASE_ANON_KEY
   - If desired, contact me for you to use a public env variables for this project. 
 
-  To clone the configuration, you need to create a database in ==supabase== and create a table called "students" with these columns:
+  To clone the configuration, you need to create a database in supabase and create a table called "students" with these columns:
   - id (int8)
   - course (varchar)
   - full_name (varchar)
